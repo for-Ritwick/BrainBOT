@@ -39,33 +39,6 @@
       margin-bottom: 30px;
       color: #f0f0f0; /* Light gray text color */
     }
-    .button {
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      margin: 0 10px;
-      margin: 10px; /* Increased margin */
-      transition: background-color 0.3s;
-      font-family: 'Roboto', sans-serif; /* Roboto font */
-      font-weight: bold; /* Bold font weight */
-    }
-    /* BrainBOT button */
-    #brainbot-button {
-      background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
-    }
-    .button:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
-    }
-    #chatbot-container {
-      margin-top: 30px;
-      width: 100%; /* Ensure container fills the available width */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
     /* Style for iframe */
     iframe {
       border: none;
@@ -75,25 +48,12 @@
       max-width: 800px; /* Limit the width to 800px */
       height: 600px; /* Set the fixed height */
     }
-
-    /* Media Query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .button {
-        margin: 10px 0; /* Adjust margin for smaller screens */
-        display: block;
-        width: 80%; /* Set button width to 80% for better spacing */
-        max-width: 300px; /* Limit button width */
-        margin: 10px auto; /* Center-align buttons */
-      }
-    }
   </style>
 </head>
 <body>
 <div class="container">
   <h1>Welcome to Our Website!</h1>
   <p>Please select the chatbot you'd like to use:</p>
-  <!-- BrainBOT button -->
-  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
   <div id="chatbot-container">
     <!-- Chatbot will be loaded here -->
   </div>

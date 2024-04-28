@@ -15,7 +15,6 @@
       align-items: center;
       height: 100vh;
       /* Add background image */
-      background-image: url('2.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -117,15 +116,18 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  function loadChatbot(chatbotPage) {
-    var chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.innerHTML = ''; // Clear any existing chatbots
-
-    var chatbotFrame = document.createElement('iframe');
-    chatbotFrame.src = chatbotPage;
-    chatbotContainer.appendChild(chatbotFrame);
-  }
+  $(document).ready(function() {
+    var API_KEY = '43622532-ee50d1a3018e89b7fa8229dc3';
+    var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
+    $.getJSON(URL, function(data){
+      if (parseInt(data.totalHits) > 0)
+        $('body').css('background-image', 'url(' + data.hits[0].largeImageURL + ')');
+      else
+        console.log('No hits');
+    });
+  });
 </script>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot Selection</title>
+  <title>Image Search</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
   <style>
     body {
@@ -14,12 +14,9 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      /* Add background image */
-      background-image: url('2.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background-color: #f0f0f0; /* Light gray background */
     }
+
     .container {
       text-align: center;
       background: linear-gradient(120deg, #251e3e, #844ba3); /* Deep black-purple gradient */
@@ -29,89 +26,112 @@
       max-width: 800px; /* Max width for the container */
       width: 100%; /* Ensure container fills the available width */
     }
+
     h1 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #fff; /* White text color */
     }
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #f0f0f0; /* Light gray text color */
-    }
-    .button {
+
+    .search-button {
       padding: 12px 24px;
       font-size: 16px;
       border: none;
       border-radius: 5px;
       color: white;
       cursor: pointer;
-      margin: 0 10px;
       margin: 10px; /* Increased margin */
       transition: background-color 0.3s;
       font-family: 'Roboto', sans-serif; /* Roboto font */
       font-weight: bold; /* Bold font weight */
-    }
-    /* Grammar Checker button */
-    #grammar-checker-button {
-      background: linear-gradient(120deg, #4CAF50, #8BC34A); /* Green gradient */
-    }
-    /* BrainBOT button */
-    #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
     }
-    .button:hover {
+
+    .search-button:hover {
       background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
     }
-    #chatbot-container {
-      margin-top: 30px;
-      width: 100%; /* Ensure container fills the available width */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Style for iframe */
-    iframe {
-      border: none;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      width: 100%; /* Fill the available width */
-      max-width: 800px; /* Limit the width to 800px */
-      height: 600px; /* Set the fixed height */
+
+    .search-form {
+      display: none; /* Hide by default */
+      margin-bottom: 30px;
     }
 
-    /* Media Query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .button {
-        margin: 10px 0; /* Adjust margin for smaller screens */
-        display: block;
-        width: 80%; /* Set button width to 80% for better spacing */
-        max-width: 300px; /* Limit button width */
-        margin: 10px auto; /* Center-align buttons */
-      }
+    .search-form input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .search-form button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50; /* Green */
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .image-results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image-results img {
+      width: 200px;
+      height: auto;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
+
 <div class="container">
   <h1>Welcome to Our Website!</h1>
-  <p>Please select the chatbot you'd like to use:</p>
-  <!-- Grammar Checker button -->
-  <button id="grammar-checker-button" class="button" onclick="loadChatbot('grammar_checker.html')">Grammar Checker</button>
-  <!-- BrainBOT button -->
-  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
-  <div id="chatbot-container">
-    <!-- Chatbot will be loaded here -->
+  <button class="search-button" onclick="toggleSearch()">Image Search</button>
+  <div class="search-form" id="search-form">
+    <input type="text" id="search-input" placeholder="Enter your search term">
+    <button onclick="searchImages()">Search</button>
+  </div>
+  <div class="image-results" id="image-results">
+    <!-- Image search results will be displayed here -->
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  function loadChatbot(chatbotPage) {
-    var chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.innerHTML = ''; // Clear any existing chatbots
-    var chatbotFrame = document.createElement('iframe');
-    chatbotFrame.src = chatbotPage;
-    chatbotContainer.appendChild(chatbotFrame);
+  function toggleSearch() {
+    var searchForm = document.getElementById('search-form');
+    searchForm.style.display = (searchForm.style.display === 'none') ? 'block' : 'none';
+  }
+
+  function searchImages() {
+    var searchTerm = document.getElementById('search-input').value.trim();
+    // You can replace 'YOUR_GOOGLE_API_KEY' with your actual Google Custom Search JSON API key
+    var API_KEY = 'YOUR_GOOGLE_API_KEY';
+    var CX = 'YOUR_CUSTOM_SEARCH_ENGINE_ID'; // Replace with your custom search engine ID
+    var URL = `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CX}&q=${encodeURIComponent(searchTerm)}&searchType=image`;
+    $.getJSON(URL, function(data){
+      if (data.items && data.items.length > 0) {
+        var imageResults = document.getElementById('image-results');
+        imageResults.innerHTML = ''; // Clear previous results
+        data.items.forEach(function(item) {
+          var img = document.createElement('img');
+          img.src = item.link;
+          img.alt = item.title;
+          imageResults.appendChild(img);
+        });
+      } else {
+        console.log('No hits');
+      }
+    });
   }
 </script>
+
 </body>
 </html>

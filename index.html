@@ -20,6 +20,7 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     .container {
       text-align: center;
       background: linear-gradient(120deg, #251e3e, #844ba3); /* Deep black-purple gradient */
@@ -29,16 +30,19 @@
       max-width: 800px; /* Max width for the container */
       width: 100%; /* Ensure container fills the available width */
     }
+
     h1 {
       font-size: 28px;
       margin-bottom: 20px;
       color: #fff; /* White text color */
     }
+
     p {
       font-size: 18px;
       margin-bottom: 30px;
       color: #f0f0f0; /* Light gray text color */
     }
+
     .button {
       padding: 12px 24px;
       font-size: 16px;
@@ -52,18 +56,15 @@
       font-weight: bold; /* Bold font weight */
     }
 
-    /* Grammar Checker button */
-    #grammar-checker-button {
-      background: linear-gradient(120deg, #4CAF50, #8BC34A); /* Green gradient */
-    }
-
     /* BrainBOT button */
     #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
     }
+
     .button:hover {
       background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
     }
+
     #chatbot-container {
       margin-top: 30px;
       width: 100%; /* Ensure container fills the available width */
@@ -71,6 +72,7 @@
       justify-content: center;
       align-items: center;
     }
+
     /* Style for iframe */
     iframe {
       border: none;
@@ -80,6 +82,7 @@
       max-width: 800px; /* Limit the width to 800px */
       height: 600px; /* Set the fixed height */
     }
+
     /* Media Query for smaller screens */
     @media screen and (max-width: 600px) {
       .button {
@@ -93,12 +96,10 @@
   </style>
 </head>
 <body>
+
 <div class="container">
   <h1>Welcome to Our Website!</h1>
   <p>Please select the chatbot you'd like to use:</p>
-
-  <!-- Grammar Checker button -->
-  <button id="grammar-checker-button" class="button" onclick="loadChatbot('grammar_checker.html')">Grammar Checker</button>
 
   <!-- BrainBOT button -->
   <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
@@ -107,14 +108,17 @@
     <!-- Chatbot will be loaded here -->
   </div>
 </div>
+
 <script>
   function loadChatbot(chatbotPage) {
     var chatbotContainer = document.getElementById('chatbot-container');
     chatbotContainer.innerHTML = ''; // Clear any existing chatbots
+
     var chatbotFrame = document.createElement('iframe');
     chatbotFrame.src = chatbotPage;
     chatbotContainer.appendChild(chatbotFrame);
   }
 </script>
+
 </body>
 </html>

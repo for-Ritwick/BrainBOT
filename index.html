@@ -102,14 +102,32 @@
     }
 
     .developer-info a {
-      color: #fff; /* White color */
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077B5; /* LinkedIn blue */
+      border-radius: 5px;
+      color: white;
       text-decoration: none;
-      background: linear-gradient(120deg, #6c5b7b, #c06c84); /* Gradient color for the name */
-      -webkit-background-clip: text; /* Clip the text to the background shape */
-      background-clip: text; /* Clip the text to the background shape */
-      -webkit-text-fill-color: transparent; /* Hide the text */
-      font-weight: bold; /* Bold font weight */
-      font-family: 'Roboto', sans-serif; /* Roboto font */
+      transition: background-color 0.3s;
+    }
+
+    .developer-info a:hover {
+      background-color: #005983; /* Darker shade on hover */
+    }
+
+    /* Circular photo */
+    .profile-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+
+    .profile-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -131,7 +149,7 @@
     <div class="profile-photo">
       <img src="3.jpg" alt="Ritwick Ghoshal">
     </div>
-    Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank" class="developer-name">Ritwick Ghoshal</a>
+    Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
 </div>
 

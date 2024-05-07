@@ -104,25 +104,12 @@
     .developer-info a {
       color: #fff; /* White color */
       text-decoration: none;
-    }
-
-    .developer-info a:hover {
-      text-decoration: underline;
-    }
-
-    /* Circular photo */
-    .profile-photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: 0 auto 20px;
-    }
-
-    .profile-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      background: linear-gradient(120deg, #6c5b7b, #c06c84); /* Gradient color for the name */
+      -webkit-background-clip: text; /* Clip the text to the background shape */
+      background-clip: text; /* Clip the text to the background shape */
+      -webkit-text-fill-color: transparent; /* Hide the text */
+      font-weight: bold; /* Bold font weight */
+      font-family: 'Roboto', sans-serif; /* Roboto font */
     }
   </style>
 </head>
@@ -132,6 +119,9 @@
   <h1>Welcome to Our Website!</h1>
   <p>Please select the chatbot you'd like to use:</p>
 
+  <!-- BrainBOT button -->
+  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
+
   <div id="chatbot-container">
     <!-- Chatbot will be loaded here -->
   </div>
@@ -139,9 +129,9 @@
   <!-- Developer info -->
   <div class="developer-info">
     <div class="profile-photo">
-      <img src="5.jpg" alt="Ritwick Ghoshal">
+      <img src="3.jpg" alt="Ritwick Ghoshal">
     </div>
-    Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
+    Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank" class="developer-name">Ritwick Ghoshal</a>
   </div>
 </div>
 

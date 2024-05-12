@@ -95,7 +95,7 @@
   <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
 
   <!-- Login form -->
-  <form id="loginForm" style="display: none;">
+  <form id="loginForm">
     <div>
       <label for="username">Username:</label>
       <input type="text" id="username" name="username" required>
@@ -108,7 +108,7 @@
   </form>
 
   <!-- BrainBOT button -->
-  <button id="brainbot-button" class="button" onclick="showLoginForm()">Get Started</button>
+  <button id="brainbot-button" class="button" style="display: none;" onclick="loadChatbot('brainbot.html')">Get Started</button>
 
   <div id="chatbot-container">
     <!-- Chatbot will be loaded here -->
@@ -121,17 +121,12 @@
 </div>
 
 <script>
-  function showLoginForm() {
-    var loginForm = document.getElementById('loginForm');
-    var brainbotButton = document.getElementById('brainbot-button');
+  function loadChatbot(chatbotPage) {
     var chatbotContainer = document.getElementById('chatbot-container');
-
-    // Hide BrainBOT button and show login form
-    brainbotButton.style.display = 'none';
-    loginForm.style.display = 'block';
-
-    // Clear any existing chatbots
-    chatbotContainer.innerHTML = '';
+    chatbotContainer.innerHTML = ''; // Clear any existing chatbots
+    var chatbotFrame = document.createElement('iframe');
+    chatbotFrame.src = chatbotPage;
+    chatbotContainer.appendChild(chatbotFrame);
   }
 
   document.getElementById('loginForm').addEventListener('submit', function(event) {

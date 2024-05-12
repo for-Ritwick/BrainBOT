@@ -3,24 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrainBOT</title>
-    <!-- Chatbot Configuration Script -->
-    <script>
-        window.chatbotConfig = {
-            chatbotId: 'clvfnmtf60001plougeoaaknr',
-        };
-    </script>
+    <title>My Website with OpenAssistantGPT Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #chatbot {
+            overflow: hidden;
+            height: 80vh;
+            width: 100%;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-
-<!-- Chatbot Script -->
-<script src="https://www.openassistantgpt.io/chatwindow.js"></script>
-
-<!-- Other Body Elements -->
-<div id="openassistantgpt-chatbot">
-  <!-- This div will be populated with the chatbot interface -->
-</div>
-<!-- Other Body Elements -->
-
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple example of a webpage with an embedded OpenAssistantGPT chatbot.</p>
+        <iframe id="chatbot" src="https://www.openassistantgpt.io/embed/clw3vftfe00013p4hz0q7qvz8/window?chatbox=false" allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency></iframe>
+    </div>
 </body>
 </html>

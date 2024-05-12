@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f4f6; /* Set background color */
+    }
+    .container {
+      text-align: center;
+      background: #ffffff; /* White background */
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      max-width: 400px; /* Max width for the container */
+      width: 100%; /* Ensure container fills the available width */
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333; /* Dark text color */
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc; /* Light gray border */
+    }
+    .button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      font-family: 'Roboto', sans-serif; /* Roboto font */
+      font-weight: bold; /* Bold font weight */
+      background-color: #4CAF50; /* Green background */
+    }
+    .button:hover {
+      background-color: #45a049; /* Dark green background on hover */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Sign In</h1>
+  <form id="login-form" onsubmit="return login()">
+    <input type="text" id="username" name="username" placeholder="Username" required><br>
+    <input type="password" id="password" name="password" placeholder="Password" required><br>
+    <button type="submit" class="button">Sign In</button>
+  </form>
+</div>
+
+<script>
+  function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    // Check if username and password are correct
+    if (username === 'trybot1' && password === 'pass1') {
+      // Redirect to the main page if login is successful
+      window.location.href = 'index.html';
+      return false; // Prevent form submission
+    } else {
+      // Display an alert if login is unsuccessful
+      alert('Invalid username or password. Please try again.');
+      return false; // Prevent form submission
+    }
+  }
+</script>
+</body>
+</html>

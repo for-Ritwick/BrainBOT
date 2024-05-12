@@ -7,29 +7,28 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Centering the chatbot */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
         }
 
         .chat-container {
             width: 100%;
-            max-width: 480px; /* Adjust this value as needed */
-            margin: auto;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             overflow: hidden;
-            position: relative;
         }
 
         iframe {
             border: 0 none;
             width: 100%;
-            height: calc(100vh - 100px); /* Adjust this value as needed */
-            max-height: 80vh; /* Adjust this value as needed */
+            height: 100%;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            border-radius: 0;
         }
     </style>
 </head>
@@ -39,7 +38,6 @@
         <!-- Iframe code for OpenAssistantGPT chatbot -->
         <iframe 
             src="https://www.openassistantgpt.io/embed/clw3vftfe00013p4hz0q7qvz8/window?chatbox=false"
-            style="overflow: hidden; height: 80vh; border: 0 none; width: 480px; bottom: -30px;"
             allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency
         ></iframe>
     </div>

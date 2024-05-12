@@ -7,27 +7,26 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Centering the chatbot */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
             margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
         }
 
         .chat-container {
             width: 100%;
-            max-width: 480px; /* Adjust this value as needed */
-            margin: auto;
-            overflow: hidden;
-            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         iframe {
             border: 0 none;
             width: 100%;
-            height: calc(100vh - 100px); /* Adjust this value as needed */
-            max-height: 80vh; /* Adjust this value as needed */
+            max-width: 480px; /* Adjust this value as needed */
+            height: 80vh; /* Adjust this value as needed */
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }

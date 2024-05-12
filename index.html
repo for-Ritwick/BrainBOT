@@ -1,120 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chatbot Selection</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      /* Add background image */
-      background-image: url('2.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-    .container {
-      text-align: center;
-      background: linear-gradient(120deg, #251e3e, #844ba3); /* Deep black-purple gradient */
-      border-radius: 10px;
-      padding: 40px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      max-width: 800px; /* Max width for the container */
-      width: 100%; /* Ensure container fills the available width */
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #fff; /* White text color */
-    }
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #f0f0f0; /* Light gray text color */
-    }
-    .button {
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      margin: 10px; /* Increased margin */
-      transition: background-color 0.3s;
-      font-family: 'Roboto', sans-serif; /* Roboto font */
-      font-weight: bold; /* Bold font weight */
-    }
-
-    /* Grammar Checker button */
-    #grammar-checker-button {
-      background: linear-gradient(120deg, #4CAF50, #8BC34A); /* Green gradient */
-    }
-
-    /* BrainBOT button */
-    #brainbot-button {
-      background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
-    }
-    .button:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
-    }
-    #chatbot-container {
-      margin-top: 30px;
-      width: 100%; /* Ensure container fills the available width */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Style for iframe */
-    iframe {
-      border: none;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      width: 100%; /* Fill the available width */
-      max-width: 800px; /* Limit the width to 800px */
-      height: 600px; /* Set the fixed height */
-    }
-    /* Media Query for smaller screens */
-    @media screen and (max-width: 600px) {
-      .button {
-        margin: 10px 0; /* Adjust margin for smaller screens */
-        display: block;
-        width: 80%; /* Set button width to 80% for better spacing */
-        max-width: 300px; /* Limit button width */
-        margin: 10px auto; /* Center-align buttons */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website with OpenAssistantGPT Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #chatbot {
+            overflow: hidden;
+            height: 80vh;
+            border: 0 none;
+            width: 100%;
+            bottom: -30px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>Welcome to Our Website!</h1>
-  <p>Please select the chatbot you'd like to use:</p>
-
-  <!-- Grammar Checker button -->
-  <button id="grammar-checker-button" class="button" onclick="loadChatbot('grammar_checker.html')">Grammar Checker</button>
-
-  <!-- BrainBOT button -->
-  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
-
-  <div id="chatbot-container">
-    <!-- Chatbot will be loaded here -->
-  </div>
-</div>
-<script>
-  function loadChatbot(chatbotPage) {
-    var chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.innerHTML = ''; // Clear any existing chatbots
-    var chatbotFrame = document.createElement('iframe');
-    chatbotFrame.src = chatbotPage;
-    chatbotContainer.appendChild(chatbotFrame);
-  }
-</script>
+    <div class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is a simple example of a webpage with an embedded OpenAssistantGPT chatbot.</p>
+        <iframe id="chatbot" src="https://www.openassistantgpt.io/embed/clw3suq170004l1pgi69zha0u/window?chatbox=false" allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency></iframe>
+    </div>
 </body>
 </html>

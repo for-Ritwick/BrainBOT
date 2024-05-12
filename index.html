@@ -26,7 +26,7 @@
       border-radius: 10px;
       padding: 40px;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      max-width: 400px; /* Max width for the container */
+      max-width: 800px; /* Max width for the container */
       width: 100%; /* Ensure container fills the available width */
     }
     h1 {
@@ -107,8 +107,7 @@
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       width: 100%; /* Fill the available width */
-      max-width: 400px; /* Limit the width to 400px */
-      height: 300px; /* Set the fixed height */
+      height: 600px; /* Set the fixed height */
     }
     /* Developer info */
     .developer-info {
@@ -171,11 +170,12 @@
 
     // Check if username and password are correct
     if (username === 'trybot1' && password === 'pass1') {
-      // Show BrainBOT button and hide login form
+      // Load BrainBOT page
+      loadChatbot('brainbot.html');
+      
+      // Hide login form
       var loginForm = document.getElementById('loginForm');
-      var brainbotButton = document.getElementById('brainbot-button');
       loginForm.style.display = 'none';
-      brainbotButton.style.display = 'inline-block';
     } else {
       alert('Incorrect username or password. Please try again.');
     }

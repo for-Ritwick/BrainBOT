@@ -51,6 +51,7 @@
       font-family: 'Roboto', sans-serif; /* Roboto font */
       font-weight: bold; /* Bold font weight */
     }
+
     /* BrainBOT button */
     #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
@@ -74,16 +75,19 @@
       max-width: 800px; /* Limit the width to 800px */
       height: 600px; /* Set the fixed height */
     }
+
     /* Developer info */
     .developer-info {
       margin-top: 30px;
       color: #fff;
       font-size: 16px;
     }
+
     .developer-info a {
       color: #fff;
       text-decoration: none;
     }
+
     /* Circular photo */
     .profile-photo {
       width: 150px;
@@ -92,6 +96,7 @@
       overflow: hidden;
       margin: 0 auto 20px;
     }
+
     .profile-photo img {
       width: 100%;
       height: 100%;
@@ -105,17 +110,18 @@
   <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
 
   <!-- BrainBOT button -->
-  
   <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
 
   <div id="chatbot-container">
     <!-- Chatbot will be loaded here -->
   </div>
+
   <!-- Developer info -->
   <div class="developer-info">
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
 </div>
+
 <script>
   function loadChatbot(chatbotPage) {
     var chatbotContainer = document.getElementById('chatbot-container');

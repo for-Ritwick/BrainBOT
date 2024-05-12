@@ -3,32 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website with OpenAssistantGPT Chatbot</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        #chatbot {
-            overflow: hidden;
-            height: 80vh;
-            width: 100%;
-            border: none;
-        }
-    </style>
+    <title>My Awesome Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple example of a webpage with an embedded OpenAssistantGPT chatbot.</p>
-        <iframe id="chatbot" src="https://www.openassistantgpt.io/embed/clw3vftfe00013p4hz0q7qvz8/window?chatbox=false" allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency></iframe>
+        <h1>Welcome to My Awesome Website</h1>
+        <p>Click the button below to chat with BrainBot!</p>
+        <button id="openChatBtn">Chat with BrainBot</button>
     </div>
+
+    <script>
+        document.getElementById("openChatBtn").addEventListener("click", function() {
+            window.location.href = "brainbot.html";
+        });
+    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In for BrainBOT</title>
+  <title>Sign In</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -48,27 +48,17 @@
     button:hover {
       background-color: #0056b3;
     }
-    .sign-brainbot {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #888;
-    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Sign In for BrainBOT</h1>
-    <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
+    <h1>Sign In</h1>
     <form id="signin-form">
       <input type="text" id="username" name="username" placeholder="Username">
       <input type="password" id="password" name="password" placeholder="Password">
       <button type="button" onclick="signIn()">Sign In</button>
     </form>
-    <div class="sign-brainbot">
-      This is the sign-in page for BrainBOT.
-    </div>
   </div>
-
   <script>
     function signIn() {
       var username = document.getElementById("username").value;
@@ -76,6 +66,7 @@
 
       // Check if username and password match
       if (username === "user1" && password === "pass1") {
+        // Redirect to index.html upon successful sign-in
         // Redirect to index1.html upon successful sign-in
         window.location.href = "index1.html";
       } else {

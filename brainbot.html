@@ -46,6 +46,8 @@
 </body>
 <script>
   function logOut() {
+    // Clear authentication status from session storage
+    sessionStorage.removeItem("authenticated");
     // Redirect to the sign-in page
     window.location.href = "index.html";
   }

@@ -48,16 +48,14 @@
       color: white;
       cursor: pointer;
       margin: 10px; /* Increased margin */
-      transition: background-color 0.3s;
+      transition: none; /* Remove hover effect */
       font-family: 'Roboto', sans-serif; /* Roboto font */
       font-weight: bold; /* Bold font weight */
+      background: linear-gradient(120deg, #007bff, #0056b3); /* Blue gradient */
     }
     /* BrainBOT button */
     #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
-    }
-    .button:hover {
-      background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white on hover */
     }
     #chatbot-container {
       margin-top: 30px;
@@ -113,8 +111,6 @@
   <div class="developer-info">
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
-  <!-- Log Out button -->
-  <button class="button" onclick="logOut()">Log Out</button>
 </div>
 <script>
   function loadChatbot(chatbotPage) {
@@ -124,20 +120,6 @@
     chatbotFrame.src = chatbotPage;
     chatbotContainer.appendChild(chatbotFrame);
   }
-
-  function logOut() {
-    // Clear authentication status from session storage
-    sessionStorage.removeItem("authenticated");
-    // Redirect to the sign-in page
-    window.location.href = "index.html";
-  }
-
-  // Check if the user is authenticated on page load
-  window.onload = function() {
-    if (!sessionStorage.getItem("authenticated")) {
-      window.location.href = "index.html";
-    }
-  };
 </script>
 </body>
 </html>

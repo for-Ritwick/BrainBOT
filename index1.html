@@ -56,6 +56,20 @@
     #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347); /* Orange gradient */
     }
+    .button.logout {
+      background-color: #FF6347; /* Red background */
+    }
+    .button.logout:hover {
+      background-color: #FF6347; /* Keep red background on hover */
+    }
+    /* White text color */
+    .button.logout {
+      color: white;
+    }
+    /* Ensure proper button spacing */
+    .button.logout + .button {
+      margin-left: 10px;
+    }
     
     #chatbot-container {
       margin-top: 30px;
@@ -112,7 +126,7 @@
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
   <!-- Log Out button -->
-  <button class="button" onclick="logOut()">Log Out</button>
+  <button class="button logout" onclick="logOut()">Log Out</button>
 </div>
 <script>
   function loadChatbot(chatbotPage) {

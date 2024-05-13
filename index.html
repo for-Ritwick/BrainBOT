@@ -13,7 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* Ensure the body fills the viewport */
+      height: 100vh;
       /* Add background image */
       background-image: url('2.jpg');
       background-image: url('bg.jpg');
@@ -65,7 +65,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100%; /* Fill the available height */
     }
     /* Style for iframe */
     iframe {
@@ -73,7 +72,8 @@
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       width: 100%; /* Fill the available width */
-      height: 100%; /* Fill the available height */
+      max-width: 800px; /* Limit the width to 800px */
+      height: 600px; /* Set the fixed height */
     }
     /* Developer info */
     .developer-info {

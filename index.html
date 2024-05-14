@@ -13,7 +13,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh; /* Adjusted */
+      min-height: 100vh;
       background-image: url('2.jpg');
       background-size: cover;
       background-position: center;
@@ -24,9 +24,9 @@
       border-radius: 10px;
       padding: 40px;
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      max-width: 90%; /* Adjusted */
-      width: 600px; /* Adjusted */
-      margin: 20px; /* Adjusted */
+      max-width: 90%;
+      width: 600px;
+      margin: 20px;
     }
     h1 {
       font-size: 28px;
@@ -65,9 +65,9 @@
       border: none;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
-      width: 100%; /* Fill the available width */
-      max-width: 600px; /* Limit the width to 600px */
-      height: 500px; /* Set the fixed height */
+      width: 100%;
+      max-width: 600px;
+      height: 500px;
     }
     .developer-info {
       margin-top: 30px;
@@ -116,6 +116,7 @@
       var chatbotFrame = document.createElement('iframe');
       chatbotFrame.src = chatbotPage;
       chatbotContainer.appendChild(chatbotFrame);
+      hideGetStartedButton();
     }
 
     function showGetStartedButton() {
@@ -132,11 +133,8 @@
       var chatbotContainer = document.getElementById('chatbot-container');
       chatbotContainer.innerHTML = '';
     }
-  </script>
 
-  <!-- Netlify Identity widget -->
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
+    // Netlify Identity events
     netlifyIdentity.on('login', function () {
       showGetStartedButton();
     });
@@ -146,9 +144,13 @@
       clearChatbotContainer();
     });
 
+    // Check current user
     if (netlifyIdentity.currentUser()) {
       showGetStartedButton();
     }
   </script>
+
+  <!-- Netlify Identity widget -->
+  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>

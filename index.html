@@ -103,6 +103,9 @@
     <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
     <!-- BrainBOT button -->
     <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">Get Started</button>
+    <!-- Netlify Identity buttons -->
+    <div data-netlify-identity-menu></div>
+    <div data-netlify-identity-button style="display: none;"></div>
     <div id="chatbot-container">
       <!-- Chatbot will be loaded here -->
     </div>
@@ -122,5 +125,6 @@
       document.getElementById('brainbot-button').style.display = 'none';
     }
   </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>

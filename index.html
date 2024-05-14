@@ -17,7 +17,6 @@
       height: 100vh;
       /* Add background image */
       background-image: url('2.jpg');
-      background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -107,7 +106,7 @@
   <h1>Welcome to BrainBOT</h1>
   <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
   <!-- BrainBOT button -->
-  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">Get Started</button>
+  <button id="brainbot-button" class="button" style="display: none;" onclick="loadChatbot('brainbot.html')">Get Started</button>
   <div id="chatbot-container">
     <!-- Chatbot will be loaded here -->
   </div>
@@ -124,6 +123,35 @@
     var chatbotFrame = document.createElement('iframe');
     chatbotFrame.src = chatbotPage;
     chatbotContainer.appendChild(chatbotFrame);
+  }
+
+  // Bind login button click event
+  document.querySelector('[data-netlify-identity-button]').addEventListener('click', function() {
+    // Open the modal
+    netlifyIdentity.open();
+  });
+
+  // Bind events
+  netlifyIdentity.on('login', function(user) {
+    // Show the Get Started button after login
+    var getStartedButton = document.getElementById('brainbot-button');
+    getStartedButton.style.display = 'block';
+  });
+
+  netlifyIdentity.on('logout', function() {
+    // Hide the Get Started button after logout
+    var getStartedButton = document.getElementById('brainbot-button');
+    getStartedButton.style.display = 'none';
+    // Clear chatbot container
+    var chatbotContainer = document.getElementById('chatbot-container');
+    chatbotContainer.innerHTML = '';
+  });
+
+  // Check if user is logged in on page load
+  if (netlifyIdentity.currentUser()) {
+    // Show the Get Started button if user is already logged in
+    var getStartedButton = document.getElementById('brainbot-button');
+    getStartedButton.style.display = 'block';
   }
 </script>
 </body>

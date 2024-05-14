@@ -14,7 +14,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background-image: url('bg.jpg');
+      background-image: url('2.jpg');
       background-size: cover;
       background-position: center;
     }
@@ -77,9 +77,13 @@
       color: #fff;
       text-decoration: none;
     }
-    [data-netlify-identity-menu],
-    [data-netlify-identity-button] {
+    .netlify-buttons {
+      display: flex;
+      justify-content: center;
       margin-top: 20px;
+    }
+    .netlify-buttons button {
+      margin: 0 10px;
     }
   </style>
 </head>
@@ -95,6 +99,12 @@
     <!-- Developer info -->
     <div class="developer-info">
       Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
+    </div>
+
+    <!-- Netlify Identity buttons -->
+    <div class="netlify-buttons">
+      <button data-netlify-identity-button class="button">Login with Netlify Identity</button>
+      <button onclick="location.href='/signup';" class="button">Sign up</button>
     </div>
   </div>
 
@@ -121,9 +131,6 @@
 
   <!-- Netlify Identity widget -->
   <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <div data-netlify-identity-menu></div>
-  <div data-netlify-identity-button>Login with Netlify Identity</div>
-
   <script>
     netlifyIdentity.on('login', function () {
       showGetStartedButton();

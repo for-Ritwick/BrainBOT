@@ -127,6 +127,11 @@
       var getStartedButton = document.getElementById('brainbot-button');
       getStartedButton.style.display = 'none';
     }
+
+    function clearChatbotContainer() {
+      var chatbotContainer = document.getElementById('chatbot-container');
+      chatbotContainer.innerHTML = '';
+    }
   </script>
 
   <!-- Netlify Identity widget -->
@@ -138,6 +143,7 @@
 
     netlifyIdentity.on('logout', function () {
       hideGetStartedButton();
+      clearChatbotContainer();
     });
 
     if (netlifyIdentity.currentUser()) {

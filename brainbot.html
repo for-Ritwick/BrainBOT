@@ -4,103 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BrainBot Chat</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Reset default styles */
+        /* Centering the chatbot */
         body, html {
             margin: 0;
             padding: 0;
-        }
-        /* Apply background image */
-        body {
-            background-image: url('bg.jpg');
-            background-size: cover;
-            background-position: center;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        /* Chat container styling */
-        .chat-container {
-            width: 90%; /* Adjust width */
-            max-width: 600px; /* Limit width */
-            border-radius: 10px;
+            height: 100%;
             overflow: hidden;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff; /* Chat background color */
         }
-        /* Iframe styling */
+        .chat-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
         iframe {
             border: 0 none;
-            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0;
             overflow: hidden;
+            height: 100%;
             width: 100%;
-            height: 500px; /* Fixed height */
-        }
-        /* Login button at top right */
-        .login-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            background-color: #007bff;
-            cursor: pointer;
-            z-index: 9999;
         }
     </style>
 </head>
 <body>
-    <!-- Login button -->
-    <button class="login-button">Login</button>
-    
-    <!-- Chat interface -->
-    <div class="chat-container" id="chatbot-container">
+    <!-- Chat interface goes here -->
+    <div class="chat-container">
         <!-- Iframe code for OpenAssistantGPT chatbot -->
-        <iframe src="" allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency>
-        </iframe>
+        <iframe 
+    src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false"
+    allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency
+>
+</iframe>
     </div>
-
-    <!-- Your existing script -->
-    <script>
-        function loadChatbot(chatbotPage) {
-            var chatbotContainer = document.getElementById('chatbot-container');
-            chatbotContainer.innerHTML = '';
-            var chatbotFrame = document.createElement('iframe');
-            chatbotFrame.src = chatbotPage;
-            chatbotContainer.appendChild(chatbotFrame);
-        }
-        function showGetStartedButton() {
-            var getStartedButton = document.getElementById('brainbot-button');
-            getStartedButton.style.display = 'block';
-        }
-        function hideGetStartedButton() {
-            var getStartedButton = document.getElementById('brainbot-button');
-            getStartedButton.style.display = 'none';
-        }
-        function clearChatbotContainer() {
-            var chatbotContainer = document.getElementById('chatbot-container');
-            chatbotContainer.innerHTML = '';
-        }
-    </script>
-    <!-- Netlify Identity widget -->
-    <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script>
-        netlifyIdentity.on('login', function () {
-            showGetStartedButton();
-        });
-        netlifyIdentity.on('logout', function () {
-            hideGetStartedButton();
-            clearChatbotContainer();
-        });
-        if (netlifyIdentity.currentUser()) {
-            showGetStartedButton();
-        }
-    </script>
 </body>
 </html>

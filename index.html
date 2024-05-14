@@ -4,147 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot Selection</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; /* Adjusted */
-      background-image: url('bg.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-    .container {
-      text-align: center;
-      background: linear-gradient(120deg, #251e3e, #844ba3);
-      border-radius: 10px;
-      padding: 40px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      max-width: 600px; /* Increase max-width for the container */
-      width: 90%; /* Reduce width to 90% of the viewport */
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #fff;
-    }
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      color: #f0f0f0;
-    }
-    .button {
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      color: white;
-      cursor: pointer;
-      margin: 10px;
-      transition: background-color 0.3s;
-      font-family: 'Roboto', sans-serif;
-      font-weight: bold;
-      background: linear-gradient(120deg, #FFA500, #FF6347);
-    }
-    .button:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-    #chatbot-container {
-      margin-top: 30px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    iframe {
-      border: none;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      width: 100%; /* Fill the available width */
-      max-width: 600px; /* Limit the width to 600px */
-      height: 500px; /* Set the fixed height */
-    }
-    .developer-info {
-      margin-top: 30px;
-      color: #fff;
-      font-size: 16px;
-    }
-    .developer-info a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .netlify-buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .netlify-buttons button {
-      margin: 0 10px;
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
+  <div>
     <h1>Welcome to BrainBOT</h1>
     <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
     <!-- BrainBOT button -->
-    <button id="brainbot-button" class="button" style="display: none;" onclick="loadChatbot('brainbot.html')">BrainBOT</button>
+    <button id="brainbot-button" onclick="loadChatbot('brainbot.html')">Get Started</button>
+    <!-- Netlify Identity buttons -->
+    <div data-netlify-identity-menu></div>
+    <div data-netlify-identity-button style="display: none;"></div>
     <div id="chatbot-container">
       <!-- Chatbot will be loaded here -->
     </div>
-    
-
-    <!-- Netlify Identity button -->
+    <!-- Developer info -->
     <div>
-      <button data-netlify-identity-button class="button">
+      Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
     </div>
   </div>
-
-  <!-- Your existing script -->
   <script>
     function loadChatbot(chatbotPage) {
       var chatbotContainer = document.getElementById('chatbot-container');
-      chatbotContainer.innerHTML = '';
+      chatbotContainer.innerHTML = ''; // Clear any existing chatbots
       var chatbotFrame = document.createElement('iframe');
       chatbotFrame.src = chatbotPage;
       chatbotContainer.appendChild(chatbotFrame);
-    }
-
-    function showGetStartedButton() {
-      var getStartedButton = document.getElementById('brainbot-button');
-      getStartedButton.style.display = 'block';
-    }
-
-    function hideGetStartedButton() {
-      var getStartedButton = document.getElementById('brainbot-button');
-      getStartedButton.style.display = 'none';
-    }
-
-    function clearChatbotContainer() {
-      var chatbotContainer = document.getElementById('chatbot-container');
-      chatbotContainer.innerHTML = '';
+      // Hide the "Get Started" button after loading the chatbot
+      document.getElementById('brainbot-button').style.display = 'none';
     }
   </script>
-
-  <!-- Netlify Identity widget -->
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  <script>
-    netlifyIdentity.on('login', function () {
-      showGetStartedButton();
-    });
-
-    netlifyIdentity.on('logout', function () {
-      hideGetStartedButton();
-      clearChatbotContainer();
-    });
-
-    if (netlifyIdentity.currentUser()) {
-      showGetStartedButton();
-    }
-  </script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>

@@ -6,7 +6,6 @@
     <title>BrainBot Chat</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Centering the chatbot */
         body, html {
             margin: 0;
             padding: 0;
@@ -32,21 +31,15 @@
     </style>
 </head>
 <body>
-    <!-- Chat interface goes here -->
     <div class="chat-container">
-        <!-- Iframe code for OpenAssistantGPT chatbot -->
-        <iframe 
-    src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false"
-    allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency
->
-</iframe>
+    <iframe src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false"
+    allowfullscreen allow="clipboard-read; clipboard-write" allowtransparency>
+    </iframe>
     </div>
-    <!-- Log Out button -->
     <button class="button" onclick="logOut()">Log Out</button>
 </body>
 <script>
   function logOut() {
-    // Redirect to the sign-in page
     window.location.href = "index.html";
   }
 </script>

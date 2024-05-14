@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chatbot Selection</title>
@@ -102,24 +101,18 @@
   </style>
 </head>
 <body>
-<div data-netlify-identity-menu></div>
-<div v-if="isLoggedIn">
-      <div class="container">
-      <h1>Welcome to BrainBOT</h1>
-      <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
-      <!-- BrainBOT button -->
-      <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">Get Started</button>
-            <div id="chatbot-container">
-              <!-- Chatbot will be loaded here -->
-            </div>
-      <!-- Developer info -->
-            <div class="developer-info">
-              Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
-            </div>
-    </div>
-</div>
-<div v-else>
-Please Log In.
+<div class="container">
+  <h1>Welcome to BrainBOT</h1>
+  <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
+  <!-- BrainBOT button -->
+  <button id="brainbot-button" class="button" onclick="loadChatbot('brainbot.html')">Get Started</button>
+  <div id="chatbot-container">
+    <!-- Chatbot will be loaded here -->
+  </div>
+  <!-- Developer info -->
+  <div class="developer-info">
+    Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
+  </div>
 </div>
 <script>
   function loadChatbot(chatbotPage) {

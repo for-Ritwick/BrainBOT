@@ -101,7 +101,8 @@
   <div class="developer-info">
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
-  <button class="button" id="login-button">Login</button>
+  <button class="button" id="login-button">Sign In</button>
+  <button class="button" id="logout-button" style="display: none;">Sign Out</button>
 </div>
 
 <script>
@@ -109,18 +110,25 @@
     netlifyIdentity.open();
   });
 
+  document.getElementById('logout-button').addEventListener('click', function() {
+    netlifyIdentity.logout();
+  });
+
   netlifyIdentity.on('login', function(user) {
     document.getElementById('login-button').style.display = 'none';
+    document.getElementById('logout-button').style.display = 'block';
     showChatbotIcon();
   });
 
   netlifyIdentity.on('logout', function() {
     document.getElementById('login-button').style.display = 'block';
+    document.getElementById('logout-button').style.display = 'none';
     hideChatbotIcon();
   });
 
   if (netlifyIdentity.currentUser()) {
     document.getElementById('login-button').style.display = 'none';
+    document.getElementById('logout-button').style.display = 'block';
     showChatbotIcon();
   }
 
@@ -167,6 +175,7 @@
     if ("closeChat" === t.data && e && s) {
       e.style.display = "none";
       e.style.pointerEvents = "none";
+
       e.contentWindow.postMessage("closeChat", "*");
       s.contentWindow.postMessage("closeChat", "*");
     }

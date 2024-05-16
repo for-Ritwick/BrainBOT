@@ -96,13 +96,13 @@
 <body>
 <div class="container">
   <h1>Welcome to BrainBOT</h1>
-  <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
+  <p id="chatbot-info">The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
   <div id="chatbot-container"></div>
   <div class="developer-info">
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
-  <button class="button" id="login-button">Sign In</button>
-  <button class="button" id="logout-button" style="display: none;">Sign Out</button>
+  <button class="button" id="login-button">Login</button>
+  <button class="button" id="logout-button" style="display: none;">Logout</button>
 </div>
 
 <script>
@@ -118,18 +118,21 @@
     document.getElementById('login-button').style.display = 'none';
     document.getElementById('logout-button').style.display = 'block';
     showChatbotIcon();
+    document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
   });
 
   netlifyIdentity.on('logout', function() {
     document.getElementById('login-button').style.display = 'block';
     document.getElementById('logout-button').style.display = 'none';
     hideChatbotIcon();
+    document.getElementById('chatbot-info').innerText = "The Next Generation AI-Powered Chatbot for All Your Purposes!";
   });
 
   if (netlifyIdentity.currentUser()) {
     document.getElementById('login-button').style.display = 'none';
     document.getElementById('logout-button').style.display = 'block';
     showChatbotIcon();
+    document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
   }
 
   function showChatbotIcon() {
@@ -172,11 +175,10 @@
         console.error("iframe not found");
       }
     }
+   
     if ("closeChat" === t.data && e && s) {
       e.style.display = "none";
       e.style.pointerEvents = "none";
-
-      e.contentWindow.postMessage("closeChat", "*");
       s.contentWindow.postMessage("closeChat", "*");
     }
   });

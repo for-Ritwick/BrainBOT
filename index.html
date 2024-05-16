@@ -50,8 +50,6 @@
       transition: background-color 0.3s;
       font-family: 'Roboto', sans-serif;
       font-weight: bold;
-    }
-    #brainbot-button {
       background: linear-gradient(120deg, #FFA500, #FF6347);
     }
     .button:hover {
@@ -99,43 +97,41 @@
 <div class="container">
   <h1>Welcome to BrainBOT</h1>
   <p>The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
-  <button id="brainbot-button" class="button" style="display: none;" onclick="toggleChatbot()">Get Started</button>
   <div id="chatbot-container"></div>
   <div class="developer-info">
     Developed By <a href="https://www.linkedin.com/in/rghoshal2000" target="_blank">Ritwick Ghoshal</a>
   </div>
-  <div data-netlify-identity-button class="button"></div>
+  <button class="button" id="login-button">Login</button>
 </div>
 
 <script>
-  function toggleChatbot() {
-    var iframeButton = document.getElementById('openassistantgpt-chatbot-button-iframe');
-    var iframeChat = document.getElementById('openassistantgpt-chatbot-iframe');
-    iframeButton.contentWindow.postMessage('openChat', '*');
-    iframeChat.contentWindow.postMessage('openChat', '*');
-    iframeChat.style.display = 'block';
-    iframeChat.style.pointerEvents = 'auto';
-  }
-
-  document.querySelector('[data-netlify-identity-button]').addEventListener('click', function() {
+  document.getElementById('login-button').addEventListener('click', function() {
     netlifyIdentity.open();
   });
 
   netlifyIdentity.on('login', function(user) {
-    var getStartedButton = document.getElementById('brainbot-button');
-    getStartedButton.style.display = 'block';
+    document.getElementById('login-button').style.display = 'none';
+    showChatbotIcon();
   });
 
   netlifyIdentity.on('logout', function() {
-    var getStartedButton = document.getElementById('brainbot-button');
-    getStartedButton.style.display = 'none';
-    var chatbotContainer = document.getElementById('chatbot-container');
-    chatbotContainer.innerHTML = '';
+    document.getElementById('login-button').style.display = 'block';
+    hideChatbotIcon();
   });
 
   if (netlifyIdentity.currentUser()) {
-    var getStartedButton = document.getElementById('brainbot-button');
-    getStartedButton.style.display = 'block';
+    document.getElementById('login-button').style.display = 'none';
+    showChatbotIcon();
+  }
+
+  function showChatbotIcon() {
+    document.getElementById('openassistantgpt-chatbot-button-iframe').style.display = 'block';
+    document.getElementById('openassistantgpt-chatbot-iframe').style.display = 'none';
+  }
+
+  function hideChatbotIcon() {
+    document.getElementById('openassistantgpt-chatbot-button-iframe').style.display = 'none';
+    document.getElementById('openassistantgpt-chatbot-iframe').style.display = 'none';
   }
 
   window.addEventListener("message", function(t) {
@@ -178,7 +174,7 @@
 </script>
 
 <iframe src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/button?chatbox=false"
-  style="margin-right: 1rem; margin-bottom: 1rem; position: fixed; right: 0; bottom: 0; width: 56px; height: 56px; border: 0; border-color: rgb(0, 0, 0); border-radius: 50%; color-scheme: none; background: none;"
+  style="margin-right: 1rem; margin-bottom: 1rem; position: fixed; right: 0; bottom: 0; width: 56px; height: 56px; border: 0; border-color: rgb(0, 0, 0); border-radius: 50%; color-scheme: none; background: none; display: none;"
   id="openassistantgpt-chatbot-button-iframe"></iframe>
 <iframe src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false&withExitX=true"
   style="margin-right: 1rem; margin-bottom: 6rem; display: none; position: fixed; right: 0; bottom: 0; pointer-events: none; overflow: hidden; height: 65vh; border: 2px solid #e2e8f0; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); width: 30rem;"

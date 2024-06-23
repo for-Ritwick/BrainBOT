@@ -14,7 +14,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       background-image: url('bg.jpg');
       background-size: cover;
       background-position: center;
@@ -28,10 +28,6 @@
       box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
       max-width: 800px;
       width: 100%;
-      display: flex;
-      flex-direction: column; /* Align items in a column */
-      justify-content: center; /* Center content vertically */
-      align-items: center; /* Center content horizontally */
     }
     h1 {
       font-size: 28px;
@@ -61,10 +57,7 @@
     }
     #chatbot-container {
       margin-top: 30px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: none; /* Initially hide the chatbot container */
     }
     iframe {
       border: none;
@@ -102,11 +95,7 @@
   <h1>Welcome to BrainBOT</h1>
   <p id="chatbot-info">The Next Generation AI-Powered Chatbot for All Your Purposes!</p>
   <div id="chatbot-container">
-    <iframe 
-      src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false"
-      style="overflow: hidden; height: 80vh; width: 480px; border: 2px solid #e2e8f0; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);"
-      allowfullscreen allow="clipboard-read; clipboard-write">
-    </iframe>
+    <!-- Chatbot iframe will be added here dynamically -->
   </div>
   <div class="developer-info">
     Developed By <a href="https://github.com/for-Ritwick" target="_blank">Ritwick Ghoshal</a>
@@ -130,18 +119,37 @@
     document.getElementById('login-button').style.display = 'none';
     document.getElementById('logout-button').style.display = 'block';
     document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
+    showChatbot();
   });
 
   netlifyIdentity.on('logout', function() {
     document.getElementById('login-button').style.display = 'block';
     document.getElementById('logout-button').style.display = 'none';
     document.getElementById('chatbot-info').innerText = "The Next Generation AI-Powered Chatbot for All Your Purposes!";
+    hideChatbot();
   });
 
   if (netlifyIdentity.currentUser()) {
     document.getElementById('login-button').style.display = 'none';
     document.getElementById('logout-button').style.display = 'block';
     document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
+    showChatbot();
+  }
+
+  function showChatbot() {
+    document.getElementById('chatbot-container').innerHTML = `
+      <iframe 
+        src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false"
+        style="overflow: hidden; height: 80vh; width: 480px; border: 2px solid #e2e8f0; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);"
+        allowfullscreen allow="clipboard-read; clipboard-write">
+      </iframe>
+    `;
+    document.getElementById('chatbot-container').style.display = 'block';
+  }
+
+  function hideChatbot() {
+    document.getElementById('chatbot-container').innerHTML = '';
+    document.getElementById('chatbot-container').style.display = 'none';
   }
 </script>
 

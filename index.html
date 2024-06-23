@@ -87,7 +87,7 @@
   </div>
 
   <iframe src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/button?chatbox=false"
-    style="z-index: 50; margin-right: 1rem; margin-bottom: 1rem; position: fixed; right: 0; bottom: 0; width: 56px; height: 56px; border: 0; border: 2px solid #e2e8f0; border-radius: 50%; color-scheme: none; background: none;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);"
+    style="z-index: 50; margin-right: 1rem; margin-bottom: 1rem; position: fixed; right: 0; bottom: 0; width: 56px; height: 56px; border: 0; border: 2px solid #e2e8f0; border-radius: 50%; color-scheme: none; background: none;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); display: none;"
     id="openassistantgpt-chatbot-button-iframe"></iframe>
   <!-- This chatbot is build using https://openassistantgpt.io/ -->
   <iframe src="https://www.openassistantgpt.io/embed/clw43hvqy000120iaydsgcodw/window?chatbox=false&withExitX=true"
@@ -109,6 +109,7 @@
       document.getElementById('logout-button').style.display = 'block';
       showChatbotIcon();
       document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
+      document.getElementById('openassistantgpt-chatbot-button-iframe').style.display = 'block';
     });
 
     netlifyIdentity.on('logout', function() {
@@ -116,6 +117,7 @@
       document.getElementById('logout-button').style.display = 'none';
       hideChatbotIcon();
       document.getElementById('chatbot-info').innerText = "The Next Generation AI-Powered Chatbot for All Your Purposes!";
+      document.getElementById('openassistantgpt-chatbot-button-iframe').style.display = 'none';
     });
 
     if (netlifyIdentity.currentUser()) {
@@ -123,6 +125,7 @@
       document.getElementById('logout-button').style.display = 'block';
       showChatbotIcon();
       document.getElementById('chatbot-info').innerText = "Please click on the below Icon to Use the BrainBOT.";
+      document.getElementById('openassistantgpt-chatbot-button-iframe').style.display = 'block';
     }
 
     function showChatbotIcon() {
